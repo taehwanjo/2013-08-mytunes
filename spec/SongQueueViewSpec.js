@@ -36,9 +36,13 @@ describe('SongQueueView', function() {
   });
 it('removes the dom element associated with song queue entry view when [x] is clicked', function(){
     view = new SongQueueView({collection: fakeSongs});
-    firstSong = view.collection.at(0);
-    spyOn(firstSong, 'remove').andCallThrough();
-    //view.$el.find('.removeTrack')[0].click();
+    view.render();
+    //var firstSong = fakeSongs.at(0);
+    //var firstSongEntryNode = view.$('li').eq(0);
+    //spyOn(firstSong, 'removeTrack');
+
+    view.$el.find('.removeTrack').eq(0).click();
+    expect(view.$el.find('.removeTrack').length).toEqual(1);
 });
 
 

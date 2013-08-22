@@ -3,13 +3,13 @@ var SongQueueView = Backbone.View.extend({
   //tagName: 'ol',
 
   initialize: function() {
-    //this.render();
-
+    // this.render();
     this.collection.on('add', this.render, this);
     this.collection.on('remove', this.render, this);
   },
 
   render: function() {
+    console.log('render');
     this.$el.html('');
     // _.each(this.collection, function(){
     //   this.$el.append("<li>" + this.title + "</li>");
