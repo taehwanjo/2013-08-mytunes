@@ -34,5 +34,9 @@ describe('SongQueueView', function() {
     view.collection.pop();
     expect(view.render.callCount).toEqual(2);
   });
+it('removes the dom element associated with song queue entry view when [x] is clicked', function(){
+    
+});
+
 
 });
