@@ -42,7 +42,7 @@ describe('SongQueue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
       song2 = songQueue.at(1);
       expect(songQueue.length).toEqual(2);
-      songQueue.at(0).trigger('ended');
+      songQueue.at(0).dequeue();
       expect(songQueue.length).toEqual(1);
       expect(songQueue.at(0)).toEqual(song2);
     });
@@ -50,7 +50,7 @@ describe('SongQueue', function() {
     describe('if there are any songs left in the queue', function() {
       it('plays the first song in the queue', function() {
         var songQueue = new SongQueue([songData1, songData2]);
-        songQueue.at(0).ended();
+        songQueue.at(0).dequeue();
         expect(playSpy).toHaveBeenCalled();
       });
     });
@@ -58,7 +58,7 @@ describe('SongQueue', function() {
     describe('if there are no songs left in the queue', function() {
       it('does nothing', function() {
         var songQueue = new SongQueue(songData1);
-        songQueue.at(0).ended();
+        songQueue.at(0).dequeue();
         expect(playSpy).not.toHaveBeenCalled();
       });
     });
