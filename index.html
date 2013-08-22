@@ -36,12 +36,8 @@
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
 
-        var queue = new SongQueue(songData);
-        var queueView = new SongQueueView({collection: queue});
-
         // put the view onto the screen
         $('body').append(appView.render());
-        $('body').append(queueView.render());
       });
     </script>
   </body>
